@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class EmployerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company()
+            'name' => fake()->company(),
+            'user_id' => User::factory() // if you remove this and the foreign key for the user in the migration the seed won't make 201 users
         ];
     }
 }
